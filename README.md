@@ -1,3 +1,45 @@
+Section 1 - Project Description
+1.1 Project
+mind-app
+1.2 Description
+a website to upload stories and read stories, bookmark stories.
+
+
+Section 2 - Overview
+2.1 Purpose
+for writer to share their stories and for readers to be able to save stories
+2.2 Scope
+login,database/server setup, upload stories, bookmark stories, (buy sell stories), ui
+2.3 Requirements
+ui,database setup 1 week
+login,upload stories,bookmark stories 1 week
+testing 1 week,(buy sell)
+2.3.3 Technical Requirements
+learn mern stack
+
+
+Section 4 - Data Dictionary
+users
+username(pk) string,pw string
+stories
+storyName(pk) string, desciption string
+chapter
+chapterID(pk) int, storyName(fk) string, chapterNum int, chapterTitle string, chapterContent string
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
