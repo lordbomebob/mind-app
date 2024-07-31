@@ -27,7 +27,7 @@ const RegisterUser = async (req,res) =>{
             message: `user already exists, use another username`
         })
     }
-    const encryptedPassword= userBody.password//await bcrypt.hash(userBody.password,1)
+    const encryptedPassword= await bcrypt.hash(userBody.password,1)
     const newUser= new userModel({
         username:userBody.username,
         password:encryptedPassword
