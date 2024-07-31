@@ -10,6 +10,10 @@ const storySchema= new Schema({
     description:{
         type: String,
     },
+    status:{
+        type: String,
+        trim:true
+    }
 },{
     timestamps:true
 })
