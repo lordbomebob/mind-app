@@ -7,7 +7,7 @@ chapterSchema = new Schema({
         required: true,
         trim:true
     },
-    chaterNum:{
+    chapterNum:{
         type: Number,
         require: true
     },
