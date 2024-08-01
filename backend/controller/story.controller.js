@@ -1,3 +1,4 @@
+const chapterModel = require("../models/chapter.model")
 const storyModel=require(`../models/story.model`)
 
 const getStory= async (req,res)=>{
@@ -52,10 +53,43 @@ const storyBeginning= async (req,res)=>{
     }
 }
 
+const addChapter= async (res,req)=>{
+    const chapterBody= res.body
+    if(!chapterBody.storyTitle){
+        return res.status(400).json({
+            message:`story title missing`
+        })
+    }
+    if(!chapterBody.chapterNum){
+        return res.status(400).json({
+            message:`chapter number missing`
+        })
+    }
+    const newChapter= new chapterModel({
+        storyTitle:chapterBody.storyTitle,
+        chapterNum:chapterBody.chapterNum,
+        chapterTitle:chapterBody.chapterTitle,
+        chapterContent:chapterBody.chapterContent
+    })
+    try{
+        const savedChapter = await newChapter.save()
+        return res.status(201).json({
+            message: `saved chapter succesfully`,
+            data: savedChapter
+        })
+    }catch(error){
+        return res.status(500).json({
+            message: `there was a error`,
+            error
+        })
+    }
+}
+
 
 
 
 module.exports={
     getStory,
-    storyBeginning
+    storyBeginning,
+    addChapter
 }
