@@ -18,14 +18,14 @@ const getStory= async (req,res)=>{
 }
 
 const storyBeginning= async (req,res)=>{
-    const storyModel=req.body
-    if(!storyModel.storyTitle){
+    const storyBody=req.body
+    if(!storyBody.storyTitle){
         return res.status(400).json({
             message:`title missing`
         })
     }
 
-    const storyExist = await storyModel.findOne({storyTitle:storyModel.storyTitle})
+    const storyExist = await storyBody.findOne({storyTitle:storyBody.storyTitle})
 
     if (storyExist){
         return res.status(403).json({
