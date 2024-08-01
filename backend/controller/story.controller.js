@@ -25,7 +25,7 @@ const storyBeginning= async (req,res)=>{
         })
     }
 
-    const storyExist = await storyBody.findOne({storyTitle:storyBody.storyTitle})
+    const storyExist = await storyModel.findOne({storyTitle:storyBody.storyTitle})
 
     if (storyExist){
         return res.status(403).json({

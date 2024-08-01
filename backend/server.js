@@ -18,7 +18,7 @@ connection.once(`open`, ()=>{
 })
 
 const userRouter= require(`./routes/user.route`)
-const storyRouter= require(`./routes/story`)
+const storyRouter= require(`./routes/story.route`)
 app.use(express.static(path.join(__dirname,`frontend`)))
 app.use(`/user`, userRouter)
 app.use(`/story`, storyRouter)
