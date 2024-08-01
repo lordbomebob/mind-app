@@ -18,10 +18,10 @@ connection.once(`open`, ()=>{
 })
 
 const userRouter= require(`./routes/user.route`)
-//const storyRouter= require(`./routes/story`)
+const storyRouter= require(`./routes/story`)
 app.use(express.static(path.join(__dirname,`frontend`)))
 app.use(`/user`, userRouter)
-//app.use(`/story`, storyRouter)
+app.use(`/story`, storyRouter)
 
 app.listen(port,()=>{
     console.log(`server is running on prot: ${port}`)
