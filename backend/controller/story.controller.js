@@ -53,8 +53,8 @@ const storyBeginning= async (req,res)=>{
     }
 }
 
-const addChapter= async (res,req)=>{
-    const chapterBody= res.body
+const addChapter= async (req,res)=>{
+    const chapterBody= req.body
     if(!chapterBody.storyTitle){
         return res.status(400).json({
             message:`story title missing`
@@ -65,6 +65,15 @@ const addChapter= async (res,req)=>{
             message:`chapter number missing`
         })
     }
+
+    const storyExist = await storyModel.findOne({storyTitle:chapterBody.storyTitle})
+    if (!storyExist){
+        return res.status(403).json({
+            message: `story does not exist`
+        })
+    }
+
+
     const newChapter= new chapterModel({
         storyTitle:chapterBody.storyTitle,
         chapterNum:chapterBody.chapterNum,
