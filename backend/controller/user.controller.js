@@ -1,5 +1,5 @@
 const userModel=require(`../models/user.model`);
-const bcrypt = require(`bcryptjs`)
+//const bcrypt=require('bcrypt')
 const jwt = require(`jsonwebtoken`)
 
 
@@ -27,7 +27,8 @@ const RegisterUser = async (req,res) =>{
             message: `user already exists, use another username`
         })
     }
-    const encryptedPassword= await bcrypt.hash(userBody.password,1)
+    //to encrypt if needed
+    //const encryptedPassword= await bcrypt.hash(userBody.password,1)
     const newUser= new userModel({
         username:userBody.username,
         password:encryptedPassword

@@ -42,7 +42,7 @@ const storyBeginning= async (req,res)=>{
     try{
         const savedStory = await newStory.save()
         return res.status(201).json({
-            message: `user registerd succesfully`,
+            message: `story registerd succesfully`,
             data: savedStory
         })
     }catch(error){
