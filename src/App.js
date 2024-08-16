@@ -26,18 +26,17 @@ function App() {//homepage
     setPage(page)
   }
 
-  //login and logout will do later
-  function logout(){
-    setLoginUser(null)
-  }
-  function login(username,password){
-    axios.get('')
-  }
+  //login , register, and logout 
+  
+
+  
   //visual functions
   function currentDisplay(page){
     //console.log(stories.data)
     if(page==='login'){
-      return <Login></Login>
+      return <Login currentPage={page} buttonNameType={'Login'} pageChange={pageChange} setLoginUser={setLoginUser}></Login>
+    }else if(page==='register'){
+      return <Login currentPage={page} buttonNameType={'Register'} pageChange={pageChange}setLoginUser={setLoginUser}></Login>
     }
     return <HomeStoryList storyList={stories.data}></HomeStoryList>
   }
@@ -45,7 +44,7 @@ function App() {//homepage
   return (
     
     <div className="App">
-      <MyNavbar pageChange={pageChange}></MyNavbar>
+      <MyNavbar pageChange={pageChange} setLoginUser={setLoginUser} loginUser={loginUser}></MyNavbar>
       {currentDisplay(page)}
       
     </div>

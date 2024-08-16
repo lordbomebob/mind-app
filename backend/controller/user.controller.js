@@ -31,7 +31,7 @@ const RegisterUser = async (req,res) =>{
     //const encryptedPassword= await bcrypt.hash(userBody.password,1)
     const newUser= new userModel({
         username:userBody.username,
-        password:encryptedPassword
+        password:userBody.password//encryptedPassword
     })
 
     try{
@@ -80,22 +80,21 @@ const loginUser = async (req,res)=>{
         })
 
     }
-    const isPasswordSame= await bcrypt.compare(userBody.password,userExist.password)
+    const isPasswordSame= (userBody.password=== userExist.password)//await bcrypt.compare(userBody.password,userExist.password)
     if(!isPasswordSame){
         return res.status(401).json({
             message:`wrong credential`
         })
     }
     
-    const accessToken = jwt.sign({
-        username:userExist.username,
-        id:userExist._id
-    },process.env.JWT_SECRET_KEY)
+//    const accessToken = jwt.sign({
+//        username:userExist.username,
+//        id:userExist._id
+//    },process.env.JWT_SECRET_KEY)
 
     const userData={
         id:userExist._id,
         username:userExist.username,
-        token:accessToken
     }
 
     return res.status(200).json({

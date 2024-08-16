@@ -5,7 +5,10 @@ import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 import Offcanvas from 'react-bootstrap/Offcanvas';
 
-function MyNavbar({pageChange}) {
+function MyNavbar({pageChange,setLoginUser,loginUser}) {
+  function logout(){
+    setLoginUser(null)
+  }
   return (
     <>
       {['sm'].map((expand) => (
@@ -36,9 +39,16 @@ function MyNavbar({pageChange}) {
                     </NavDropdown.Item>
                     
                   </NavDropdown>
+                  {loginUser?
+                    <Nav.Link href="#" disabled>{loginUser}</Nav.Link>:null
+                  }
+                  
                 </Nav>
-
-                  <Button variant="outline-success" onClick={()=>pageChange('login')}>Login</Button>
+                  {!loginUser?
+                    <Button variant="outline-success" onClick={()=>pageChange('login')}>Login</Button>
+                    :<Button variant="outline-success" onClick={()=>logout()}>Logout</Button>
+                  }
+                  
                 
               </Offcanvas.Body>
             </Navbar.Offcanvas>

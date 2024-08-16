@@ -10,7 +10,7 @@ function HomeStoryList({storyList}) {
                     {story.description ? story.description : 'no description'}
                 </Accordion.Body>
                 <Accordion.Body>
-                    {story.status}{count}
+                    {story.status}
                 </Accordion.Body>
             </Accordion.Item>
         )
