@@ -94,6 +94,9 @@ const addChapter= async (req,res)=>{
     }
 }
 
+const getChapters= async (req,res) => {
+    
+}
 
 
 

@@ -85,7 +85,10 @@ function Login({buttonNameType,pageChange, currentPage, setLoginUser}){
             }
           }}>Switch to {buttonNameType==='Register'? 'login':'register'}</Button>
         </div>
+
+        
       </>
+      
     )
 }
 

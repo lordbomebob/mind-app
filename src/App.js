@@ -6,6 +6,7 @@ import './App.css';
 import HomeStoryList from './Components/HomeStoryList.component';
 import Login from './Components/Login.component';
 import MyNavbar from './Components/MyNavbar.component';
+import PostStory from './Components/PostStory.component';
 
 
 
@@ -37,6 +38,8 @@ function App() {//homepage
       return <Login currentPage={page} buttonNameType={'Login'} pageChange={pageChange} setLoginUser={setLoginUser}></Login>
     }else if(page==='register'){
       return <Login currentPage={page} buttonNameType={'Register'} pageChange={pageChange}setLoginUser={setLoginUser}></Login>
+    }else if(page==='MyStories'){
+      return <PostStory></PostStory>
     }
     return <HomeStoryList storyList={stories.data}></HomeStoryList>
   }
@@ -46,6 +49,7 @@ function App() {//homepage
     <div className="App">
       <MyNavbar pageChange={pageChange} setLoginUser={setLoginUser} loginUser={loginUser}></MyNavbar>
       {currentDisplay(page)}
+      
       
     </div>
   );

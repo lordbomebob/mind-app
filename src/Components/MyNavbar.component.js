@@ -34,7 +34,7 @@ function MyNavbar({pageChange,setLoginUser,loginUser}) {
                     id={`offcanvasNavbarDropdown-expand-${expand}`}
                   >
                     <NavDropdown.Item onClick={()=>pageChange('bookmark')}>Bookmark</NavDropdown.Item>
-                    <NavDropdown.Item href="#action4">
+                    <NavDropdown.Item onClick={()=>pageChange('MyStories')}>
                       My Writing
                     </NavDropdown.Item>
                     
