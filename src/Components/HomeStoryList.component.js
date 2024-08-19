@@ -1,6 +1,7 @@
 import Accordion from 'react-bootstrap/Accordion';
+import Button from 'react-bootstrap/Button';
 
-function HomeStoryList({storyList}) {
+function HomeStoryList({storyList, setSearchTarget, setPage}) {
     function displayStory(storyList){
         let count=-1
         const storyCards = storyList.map(story=>
@@ -12,6 +13,10 @@ function HomeStoryList({storyList}) {
                 <Accordion.Body>
                     {story.status}
                 </Accordion.Body>
+                <Accordion.Body>
+                    <Button variant="primary" type='pageChange' onClick={()=>{setPage('storyChapter');setSearchTarget(story.storyTitle)}}>See Chapters</Button>
+                </Accordion.Body>
+                
             </Accordion.Item>
         )
         return storyCards
