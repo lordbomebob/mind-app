@@ -1,7 +1,7 @@
 const mongoose = require('mongoose')
 const Schema= mongoose.Schema
 
-chapterSchema = new Schema({
+const chapterSchema = new Schema({
     storyTitle:{
         type: String,
         required: true,
