@@ -95,7 +95,26 @@ const addChapter= async (req,res)=>{
 }
 
 const getChapters= async (req,res) => {
-    
+    const searchReqBody= req.body
+    if(!searchReqBody.storyTitle){
+        return res.status(400).json({
+            message:`story title missing for search`
+        })
+    }
+
+    try{
+        const chapter = await chapterModel.find({storyTitle:searchReqBody.storyTitle}).sort({chapterNum:1})
+        return res.status(200).json({
+            message:`found the story chapters`,
+            data:chapter
+            
+        })
+    }catch(error){
+        return res.status(500).json({
+            message:`failed finding story`,
+            error
+        })
+    }
 }
 
 
@@ -103,5 +122,6 @@ const getChapters= async (req,res) => {
 module.exports={
     getStory,
     storyBeginning,
-    addChapter
+    addChapter,
+    getChapters
 }
