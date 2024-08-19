@@ -15,23 +15,48 @@ ui,database setup 1 week
 login,upload stories,bookmark stories 1 week
 testing 1 week,(buy sell)
 2.3.3 Technical Requirements
-learn mern stack
+MongoDB, Express, React(bootstrap, axios), Node
+2.3.4 Security Requirements
+will eventually add bycrypt, but temporarly using no encryption
+
+Section 3 - System Architecture
+Server Side
+  Server use routes,
+  routes use controller,
+  controller use model
+
+Client Side
+  React use Components,
+  components use axio and bootstrap,
+  axio get/post to server
+
 
 
 Section 4 - Data Dictionary
 users
 username(pk) string,pw string
 stories
-storyName(pk) string, desciption string
+storyName(pk) string, desciption string, status string
 chapter
-chapterID(pk) int, storyName(fk) string, chapterNum int, chapterTitle string, chapterContent string
+chapterID(pk) int, storyName(fk) string, chapterNum int, chapterTitle string, chapterContent string, (username string {for uploader name}) 
 
+Section 5 – Data Design
+Users
+  Relationships: 1 to many with chapter
+Stories
+  Relationships: 1 to many with chapter
+Chapter 
+  Relationships: 1 to 1 with stories, 1 to 1 with users
 
-
-
-
-
-
+Section 6 - User Interface Design
+  Navbar    login
+  Switching Component{
+    login/register, upload screen, Home page, bookmark
+  }
+  
+Section 7 - Testing 
+  nodejs testing with Jest
+  React testing with React testing library
 
 
 
